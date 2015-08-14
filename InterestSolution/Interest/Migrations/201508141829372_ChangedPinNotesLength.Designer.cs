@@ -13,7 +13,7 @@ namespace Interest.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201508141820494_ChangedPinNotesLength"; }
+            get { return "201508141829372_ChangedPinNotesLength"; }
         }
         
         string IMigrationMetadata.Source

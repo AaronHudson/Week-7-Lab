@@ -11,9 +11,9 @@ namespace Interest.Controllers
     {
         InterestDbContext context = new InterestDbContext();
 
-        public ActionResult Index()
+        public ActionResult HomePage()
         {
-            return View();
+            return View(context.Pins.ToList());
         }
 
         [HttpGet]
@@ -23,9 +23,15 @@ namespace Interest.Controllers
         }
 
         [HttpPost]
-        public ActionResult New(NewPinVM pinVM)
+        public ActionResult New(Pin pin)
         {
+            context.Pins.Attach
             return RedirectToAction("Index");
+        }
+
+        public ActionResult GetImage(int ID)
+        {
+            return File(context.Pins.FirstOrDefault(x => x.ID == ID).Image, "image");
         }
     }
 }

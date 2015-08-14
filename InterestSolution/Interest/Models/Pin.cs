@@ -15,7 +15,7 @@ namespace Interest.Models
         public InterestUser Publisher { get; set; }
         public string url { get; set; }
         public byte[] Image { get; set; }
-        [MaxLength(1000)]
+        [MaxLength(250)]
         public string Notes { get; set; }
 
         public static byte[] ResizeImage(byte[] source, int width, int height)

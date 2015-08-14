@@ -177,13 +177,9 @@
     <Compile Include="Migrations\201508141813430_Initial.Designer.cs">
       <DependentUpon>201508141813430_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201508141819523_NothingHasChanged.cs" />
-    <Compile Include="Migrations\201508141819523_NothingHasChanged.Designer.cs">
-      <DependentUpon>201508141819523_NothingHasChanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201508141820494_ChangedPinNotesLength.cs" />
-    <Compile Include="Migrations\201508141820494_ChangedPinNotesLength.Designer.cs">
-      <DependentUpon>201508141820494_ChangedPinNotesLength.cs</DependentUpon>
+    <Compile Include="Migrations\201508141829372_ChangedPinNotesLength.cs" />
+    <Compile Include="Migrations\201508141829372_ChangedPinNotesLength.Designer.cs">
+      <DependentUpon>201508141829372_ChangedPinNotesLength.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -263,11 +259,8 @@
     <EmbeddedResource Include="Migrations\201508141813430_Initial.resx">
       <DependentUpon>201508141813430_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201508141819523_NothingHasChanged.resx">
-      <DependentUpon>201508141819523_NothingHasChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201508141820494_ChangedPinNotesLength.resx">
-      <DependentUpon>201508141820494_ChangedPinNotesLength.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201508141829372_ChangedPinNotesLength.resx">
+      <DependentUpon>201508141829372_ChangedPinNotesLength.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
