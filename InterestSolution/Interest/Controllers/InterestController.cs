@@ -13,19 +13,28 @@ namespace Interest.Controllers
 
         public ActionResult HomePage()
         {
-            return View(context.Pins.ToList());
-        }
-
-        [HttpGet]
-        public ActionResult New()
-        {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult New(Pin pin)
+        public ActionResult List()
         {
-            context.Pins.Attach
+           var list = context.Pins.ToList().Select(p => new { p.url, p.ImageLink, p.Notes }).ToList();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        //[HttpGet]
+        //public ActionResult New()
+        //{
+        //    return View();
+        //}
+
+     //   [ResponseType(typeof(Pin))]
+        public ActionResult New(Pin pin)
+        {   
+            if (pin != null) { 
+            context.Pins.Attach(pin);
+            context.Pins.Add(pin);
+            }
             return RedirectToAction("Index");
         }
 
