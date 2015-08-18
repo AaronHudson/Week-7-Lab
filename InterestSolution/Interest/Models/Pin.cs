@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -16,6 +17,7 @@ namespace Interest.Models
         public InterestUser Publisher { get; set; }
         public string url { get; set; }
         public byte[] Image { get; set; }
+        [NotMapped]
         public string ImageLink
         {
             get
