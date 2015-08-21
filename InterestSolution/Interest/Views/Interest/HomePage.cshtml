@@ -13,7 +13,7 @@
     <div class="container">
         <div ng-repeat="interest in interests track by $index" class="col-md-4 col-xs-6 text-center" ng-class="{ 'clearfix' : $index % 3 == 0 }">
             <img ng-src="{{interest.ImageLink}}" /> <br />
-            <a ng-href="{{interest.url}}">View on IMDB</a>
+            <a href="{{interest.url}}">View on IMDB</a>
             <p>{{interest.Notes}}</p>
             <button ng-model="ID" ng-value ="ID" class="btn btn-info btn-sm" ng-click="ctrl.deletePin(interest.ID, interest)">Delete this pin</button>
             <br /><br /><br /><br /><br /><br />
@@ -48,38 +48,21 @@
         </div>
     </div>
 </div>
-@*<div id="form-content" class="modal hide fade in" style="display: none;">
-        <div class="modal-header">
-            <a class="close" data-dismiss="modal">×</a>
-            <h3>Send me a message</h3>
-        </div>
-        <div class="modal-body">
-            <form class="contact" name="contact">
-                <label class="label" for="name">Your Name</label><br>
-                <input type="text" name="name" class="input-xlarge"><br>
-                <label class="label" for="email">Your E-mail</label><br>
-                <input type="email" name="email" class="input-xlarge"><br>
-                <label class="label" for="message">Enter a Message</label><br>
-                <textarea name="message" class="input-xlarge"></textarea>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <input class="btn btn-success" type="submit" value="Send!" id="submit">
-            <a href="#" class="btn" data-dismiss="modal">Nah.</a>
-        </div>
-    </div>
-    <div id="thanks"><p><a data-toggle="modal" href="#form-content" class="btn btn-primary btn-large">Modal powers, activate!</a></p></div>*@
 
 @section scripts {
     <script>
         (function () {
             var app = angular.module('inturests', []);
 
-            app.controller('interestCtrl', function ($scope, $http) {
+            app.controller('interestCtrl', function ($sce, $scope, $http) {
                 this.interests = [];
                 $http.get('@Url.Action("List", "Interest")').success(function (data) {
                     $scope.interests = data;
                 });
+
+                $scope.trustUrl = function (url) {
+                    return $sce.trustAsResourceUrl(url);
+                }
 
                 this.deletePin = function (ID, item) {
                     $http.post('@Url.Action("Delete", "Interest")', { ID }).success(function () {
@@ -105,21 +88,5 @@
             //});
         })();
 
-        //$(document).ready(function () {
-        //    $("input#submit").click(function () {
-        //        $.ajax({
-        //            type: "POST",
-        //            url: "process.php", //process to mail
-        //            data: $('form.contact').serialize(),
-        //            success: function (msg) {
-        //                $("#thanks").html(msg) //hide button and show thank you
-        //                $("#form-content").modal('hide'); //hide popup
-        //            },
-        //            error: function () {
-        //                alert("failure");
-        //            }
-        //        });
-        //    });
-        //});
     </script>
 }

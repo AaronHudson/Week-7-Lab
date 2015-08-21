@@ -189,6 +189,10 @@
     <Compile Include="Migrations\201508162248086_ChangedImageLink.Designer.cs">
       <DependentUpon>201508162248086_ChangedImageLink.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508180611228_AzurePublish.cs" />
+    <Compile Include="Migrations\201508180611228_AzurePublish.Designer.cs">
+      <DependentUpon>201508180611228_AzurePublish.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -229,7 +233,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508162248086_ChangedImageLink.resx">
       <DependentUpon>201508162248086_ChangedImageLink.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508180611228_AzurePublish.resx">
+      <DependentUpon>201508180611228_AzurePublish.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -43,11 +43,14 @@ namespace Interest.Controllers
         {
             string ID = System.Web.HttpContext.Current.User.Identity.GetUserId();
             Pin pin = new Pin();
+            if (!url.Contains("www."))
+                url = "www." + url;
+            if (!url.Contains("http://"))
+                url = "http://" + url;
             pin.url = url;
             pin.Notes = Notes;
             pin.Image = Pin.GetImageByteArray(ImageLink);
             pin.Publisher = context.Users.FirstOrDefault(p => p.Id == ID);
-            context.Pins.Attach(pin);
             context.Pins.Add(pin);
             context.SaveChanges();
             var newPin = context.Pins.FirstOrDefault(p => p.url == pin.url && p.Notes == pin.Notes);
